@@ -1,102 +1,101 @@
-import ClickableDotLottie from '@/components/ClickableDotLottie';
-import LottieBackground from '@/components/LottieBackground';
-
-const lottieStyles = {
-  position: 'absolute',
-  width: '150vw',
-  height: '150vw',
-};
-
-const responsiveConfigs = {
-  flower: {
-    extraLarge: { bottom: '9%', right: '26%', maxWidth: '200px', maxHeight: '200px' },
-    large: { bottom: '10%', right: '27%', maxWidth: '150px', maxHeight: '150px' },
-    medium: { bottom: '5%', right: '26%', maxWidth: '120px', maxHeight: '120px' },
-    small: { bottom: '3%', right: '26%', maxWidth: '80px', maxHeight: '80px' },
-    xsmall: { bottom: '3.3%', right: '26%', maxWidth: '50px', maxHeight: '50px' },
-  },
-  loti: {
-    extraLarge: { bottom: '5%', right: '2%', maxWidth: '500px', maxHeight: '500px' },
-    large: { bottom: '8%', right: '3%', maxWidth: '360px', maxHeight: '360px' },
-    medium: { bottom: '3%', right: '1%', maxWidth: '280px', maxHeight: '280px' },
-    small: { bottom: '1.5%', right: '1%', maxWidth: '180px', maxHeight: '180px' },
-    xsmall: { bottom: '3%', right: '2%', maxWidth: '100px', maxHeight: '100px' },
-  },
-  comp: {
-    extraLarge: { bottom: '2%', left: '-3.5%', maxWidth: '650px', maxHeight: '650px' },
-    large: { bottom: '2%', left: '-5%', maxWidth: '550px', maxHeight: '550px' },
-    medium: { bottom: '2%', left: '-2.5%', maxWidth: '400px', maxHeight: '400px' },
-    small: { bottom: '2%', left: '-1.5%', maxWidth: '250px', maxHeight: '250px' },
-    xsmall: { bottom: '2%', left: '-5.5%', maxWidth: '200px', maxHeight: '200px' },
-  },
-  punipuri: {
-    extraLarge: { left: '30%', bottom: '-1%', maxWidth: '350px', maxHeight: '350px' },
-    large: { left: '27%', bottom: '1%', maxWidth: '300px', maxHeight: '300px' },
-    medium: { left: '26%', bottom: '-2%', maxWidth: '250px', maxHeight: '250px' },
-    small: { left: '27%', bottom: '-2%', maxWidth: '180px', maxHeight: '180px' },
-    xsmall: { left: '28%', bottom: '0%', maxWidth: '100px', maxHeight: '100px' },
-  },
-};
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-[13%]">
-      <LottieBackground />
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        <Image
+          className="dark:invert"
+          src="/next.svg"
+          alt="Next.js logo"
+          width={180}
+          height={38}
+          priority
+        />
+        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <li className="mb-2">
+            Get started by editing{" "}
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
+              src/app/page.js
+            </code>
+            .
+          </li>
+          <li>Save and see your changes instantly.</li>
+        </ol>
 
-      <ClickableDotLottie
-        lottieFilePath="/images/flower.lottie"
-        speed={1}
-        style={lottieStyles}
-        responsiveSizes={responsiveConfigs.flower}
-      />
-      <ClickableDotLottie
-        lottieFilePath="/images/loti.lottie"
-        speed={1}
-        style={lottieStyles}
-        responsiveSizes={responsiveConfigs.loti}
-      />
-      <ClickableDotLottie
-        lottieFilePath="/images/comp.lottie"
-        speed={1}
-        style={lottieStyles}
-        responsiveSizes={responsiveConfigs.comp}
-      />
-      <ClickableDotLottie
-        lottieFilePath="/images/punipuri.lottie"
-        speed={1}
-        style={lottieStyles}
-        responsiveSizes={responsiveConfigs.punipuri}
-      />
-
-      <ClickableDotLottie
-        lottieFilePath="/images/panipuri-left.lottie"
-        speed={1}
-        style={{
-          position: 'absolute',
-          bottom: '0%',
-          left: '0%',
-          width: '40vw',
-          height: '40vw',
-          maxWidth: '500px',
-          maxHeight: '500px',
-          pointerEvents: 'none',
-        }}
-      />
-
-      <ClickableDotLottie
-        lottieFilePath="/images/panipuri-right.lottie"
-        speed={1}
-        style={{
-          position: 'absolute',
-          bottom: '-3%',
-          right: '0%',
-          width: '40vw',
-          height: '40vw',
-          maxWidth: '350px',
-          maxHeight: '350px',
-          pointerEvents: 'none',
-        }}
-      />
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <a
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              className="dark:invert"
+              src="/vercel.svg"
+              alt="Vercel logomark"
+              width={20}
+              height={20}
+            />
+            Deploy now
+          </a>
+          <a
+            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read our docs
+          </a>
+        </div>
+      </main>
+      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/file.svg"
+            alt="File icon"
+            width={16}
+            height={16}
+          />
+          Learn
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/window.svg"
+            alt="Window icon"
+            width={16}
+            height={16}
+          />
+          Examples
+        </a>
+        <a
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            aria-hidden
+            src="/globe.svg"
+            alt="Globe icon"
+            width={16}
+            height={16}
+          />
+          Go to nextjs.org →
+        </a>
+      </footer>
     </div>
   );
 }
