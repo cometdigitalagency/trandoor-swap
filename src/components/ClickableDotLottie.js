@@ -5,41 +5,42 @@ const ClickableDotLottie = ({ lottieFilePath, speed, style, responsiveSizes = { 
   const playerRef = useRef(null);
   const [styleState, setStyleState] = useState({});
 
-  // Memoize getResponsiveStyle to avoid unnecessary rerenders
   const getResponsiveStyle = useCallback(() => {
-    let newStyle = {};
-    if (window.innerWidth >= 1600) {
-      newStyle = responsiveSizes.extraLarge;
-    }else if (window.innerWidth >= 1200) {
-      newStyle = responsiveSizes.large;
-    } else if (window.innerWidth >= 860) {
-      newStyle = responsiveSizes.medium;
-    }else if (window.innerWidth >= 560) {
-      newStyle = responsiveSizes.small;
-    } else {
-      newStyle = responsiveSizes.xsmall;
+    if (typeof window !== "undefined") {
+      let newStyle = {};
+      if (window.innerWidth >= 1600) {
+        newStyle = responsiveSizes.extraLarge;
+      } else if (window.innerWidth >= 1200) {
+        newStyle = responsiveSizes.large;
+      } else if (window.innerWidth >= 860) {
+        newStyle = responsiveSizes.medium;
+      } else if (window.innerWidth >= 560) {
+        newStyle = responsiveSizes.small;
+      } else {
+        newStyle = responsiveSizes.xsmall;
+      }
+      if (JSON.stringify(newStyle) !== JSON.stringify(styleState)) {
+        setStyleState(newStyle);
+      }
     }
-    // Only update state if it actually changes
-    if (JSON.stringify(newStyle) !== JSON.stringify(styleState)) {
-      setStyleState(newStyle);
-    }
-  }, [responsiveSizes, styleState]); // Add styleState as a dependency to avoid infinite loop
+  }, [responsiveSizes, styleState]);
 
   useEffect(() => {
     import('@dotlottie/player-component');
-    getResponsiveStyle(); // Initial style setting
-  }, [getResponsiveStyle]); // Dependency array with getResponsiveStyle
+    getResponsiveStyle();
+  }, [getResponsiveStyle]);
 
   useEffect(() => {
-    window.addEventListener("resize", getResponsiveStyle);
-    return () => {
-      window.removeEventListener("resize", getResponsiveStyle);
-    };
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", getResponsiveStyle);
+      return () => {
+        window.removeEventListener("resize", getResponsiveStyle);
+      };
+    }
   }, [getResponsiveStyle]);
 
   const handleClick = () => {
     if (playerRef.current) {
-      // Restart the animation from the beginning on each click
       playerRef.current.stop();
       playerRef.current.setSpeed(speed);
       playerRef.current.play();
