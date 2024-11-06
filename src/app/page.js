@@ -69,6 +69,8 @@ export default function Home() {
       />
 
       <ClickableDotLottie
+        autoplay={true}
+        loop={true}
         lottieFilePath="/images/panipuri-left.lottie"
         speed={1}
         style={{
@@ -84,6 +86,8 @@ export default function Home() {
       />
 
       <ClickableDotLottie
+        autoplay={true}
+        loop={true}
         lottieFilePath="/images/panipuri-right.lottie"
         speed={1}
         style={{

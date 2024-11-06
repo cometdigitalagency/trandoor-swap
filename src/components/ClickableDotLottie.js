@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-const ClickableDotLottie = ({ lottieFilePath, speed, style, responsiveSizes = { xsmall: {}, small: {}, medium: {}, large: {}, extraLarge: {} } }) => {
+const ClickableDotLottie = ({ autoplay = false, loop = false, lottieFilePath, speed, style, responsiveSizes = { xsmall: {}, small: {}, medium: {}, large: {}, extraLarge: {} } }) => {
   const playerRef = useRef(null);
   const [styleState, setStyleState] = useState({});
 
@@ -55,8 +55,8 @@ const ClickableDotLottie = ({ lottieFilePath, speed, style, responsiveSizes = { 
       <dotlottie-player
         ref={playerRef}
         src={lottieFilePath}
-        autoplay={false}
-        loop={false}
+        autoplay={autoplay}
+        loop={loop}
       ></dotlottie-player>
     </div>
   );
