@@ -39,31 +39,32 @@ const responsiveConfigs = {
 };
 
 export default function Home() {
+  const speed = 0.8;
   return (
-    <div className="max-w-7xl mx-[13%]">
+    <div className="max-w-7xl mx-[13%] overflow-hidden">
       <LottieBackground />
 
       <ClickableDotLottie
         lottieFilePath="/images/flower.lottie"
-        speed={1}
+        speed={speed}
         style={lottieStyles}
         responsiveSizes={responsiveConfigs.flower}
       />
       <ClickableDotLottie
         lottieFilePath="/images/loti.lottie"
-        speed={1}
+        speed={speed}
         style={lottieStyles}
         responsiveSizes={responsiveConfigs.loti}
       />
       <ClickableDotLottie
         lottieFilePath="/images/comp.lottie"
-        speed={1}
+        speed={speed}
         style={lottieStyles}
         responsiveSizes={responsiveConfigs.comp}
       />
       <ClickableDotLottie
         lottieFilePath="/images/punipuri.lottie"
-        speed={1}
+        speed={speed}
         style={lottieStyles}
         responsiveSizes={responsiveConfigs.punipuri}
       />
@@ -72,7 +73,7 @@ export default function Home() {
         autoplay={true}
         loop={true}
         lottieFilePath="/images/panipuri-left.lottie"
-        speed={1}
+        speed={speed}
         style={{
           position: 'absolute',
           bottom: '0%',
@@ -89,10 +90,10 @@ export default function Home() {
         autoplay={true}
         loop={true}
         lottieFilePath="/images/panipuri-right.lottie"
-        speed={1}
+        speed={speed}
         style={{
           position: 'absolute',
-          bottom: '-3%',
+          bottom: '0%',
           right: '0%',
           width: '40vw',
           height: '40vw',
