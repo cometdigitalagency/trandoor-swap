@@ -1,6 +1,7 @@
-import ClickableDotLottie from '@/components/ClickableDotLottie';
-import LottieBackground from '@/components/LottieBackground';
+import dynamic from "next/dynamic";
 
+const ClickableDotLottie = dynamic(() => import('@/components/ClickableDotLottie'), { ssr: false });
+const LottieBackground = dynamic(() => import('@/components/LottieBackground'), { ssr: false });
 export default function Home() {
   return (
     <div className='max-w-7xl mx-[13%]'>
