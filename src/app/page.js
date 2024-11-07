@@ -64,7 +64,7 @@ export default function Home() {
       />
       <ClickableDotLottie
         lottieFilePath="/images/punipuri.lottie"
-        speed={speed}
+        speed={speed + 1}
         style={lottieStyles}
         responsiveSizes={responsiveConfigs.punipuri}
       />
