@@ -6,16 +6,25 @@ export default function LottieBackground() {
     const containerRef = useRef(null);
     const [animationPath, setAnimationPath] = useState("/images/tablet.json");
     const animationRef = useRef(null);
+    const getAnimationPath = () => {
+        if (typeof window !== "undefined") {
+            const width = window.innerWidth;
+
+            if (width >= 1200) {
+                return "/images/backgrounds/background-x-desktop.json";
+            } else if (width >= 860) {
+                return "/images/backgrounds/background-desktop.json";
+            } else {
+                return "/images/backgrounds/background-tablet.json";
+            }
+        }
+        return animationPath; // Fallback
+    };
 
     const updateAnimationPath = () => {
-        if (typeof window !== "undefined") {
-            if (window.innerWidth >= 1200) {
-                setAnimationPath("/images/backgrounds/background-x-desktop.json");
-            } else if (window.innerWidth >= 860) {
-                setAnimationPath("/images/backgrounds/background-desktop.json");
-            } else {
-                setAnimationPath("/images/backgrounds/background-tablet.json");
-            }
+        const newPath = getAnimationPath();
+        if (newPath !== animationPath) {
+            setAnimationPath(newPath);
         }
     };
 

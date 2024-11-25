@@ -63,7 +63,7 @@ export default function Home() {
         responsiveSizes={responsiveConfigs.comp}
       />
       <ClickableDotLottie
-        lottieFilePath="/images/punipuri.lottie"
+        lottieFilePath="/images/powder_table.lottie"
         speed={speed}
         style={lottieStyles}
         responsiveSizes={responsiveConfigs.punipuri}
